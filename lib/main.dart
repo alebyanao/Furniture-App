@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/login.dart';
 import 'pages/register.dart';
 import 'pages/forgotpassword.dart';
+import 'pages/reset_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,7 +77,21 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/forgotpassword': (context) => const ForgotPasswordPage(),
+        '/resetpassword': (context) => const ResetPasswordPage(token:''),
         // '/home': (context) => const HomePage(), // Uncomment jika sudah ada
+      },
+
+       onGenerateRoute: (settings) {
+        // Handle dynamic route untuk reset password dengan token
+        if (settings.name == '/resetpassword') {
+          final args = settings.arguments as Map<String, dynamic>?;
+          return MaterialPageRoute(
+            builder: (context) => ResetPasswordPage(
+              token: args?['token'] ?? '',
+            ),
+          );
+        }
+        return null;
       },
       
       // Handle route yang tidak ditemukan
