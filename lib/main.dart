@@ -70,9 +70,7 @@ class MyApp extends StatelessWidget {
       ),
       
       // Initial Route - halaman pertama yang dibuka
-      initialRoute: '/login',
-      
-      // Routes - definisi semua halaman
+      initialRoute: '/login', ///harusnya home
       routes: {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
@@ -82,7 +80,6 @@ class MyApp extends StatelessWidget {
       },
 
        onGenerateRoute: (settings) {
-        // Handle dynamic route untuk reset password dengan token
         if (settings.name == '/resetpassword') {
           final args = settings.arguments as Map<String, dynamic>?;
           return MaterialPageRoute(
@@ -94,7 +91,6 @@ class MyApp extends StatelessWidget {
         return null;
       },
       
-      // Handle route yang tidak ditemukan
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
           builder: (context) => const LoginPage(),

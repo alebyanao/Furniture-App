@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class AuthService {
   // Ganti dengan URL backend Anda
-  static const String baseUrl = 'https://e5e74d2259f8.ngrok-free.app/furniture/api';
+  static const String baseUrl = 'https://27f001b184d6.ngrok-free.app/furniture/api';
   
   static Future<Map<String, dynamic>> register({
     required String email,
